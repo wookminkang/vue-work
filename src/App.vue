@@ -1,28 +1,55 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <perfect-scrollbar class="body-wrapper">
+      <ul>
+        <li v-for="(lists,index) in imgData" :key="index">
+          {{lists.author}}
+          <img :src="lists.download_url" width="110px" height="40px"  loading="lazy" />
+        </li>
+      </ul>
+
+
+      <ul>
+        <li v-for="(lists,index) in userData" :key="index">
+          {{lists.author}}
+          <br>
+          {{lists.download_url}}
+        </li>
+      </ul>
+      <router-view/>
+    </perfect-scrollbar>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import Header from "@/layout/Header.vue";
+import Footer from "@/layout/Footer.vue";
+import {userList} from "@/api";
+
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      imgData : [],
+      userData : [],
+    }
+  },
+  components: {Footer, Header},
+  mounted() {
+    userList()
+        .then(({data})=>{
+          console.log(data)
+          this.userData = data;
+        });
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

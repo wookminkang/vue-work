@@ -1,0 +1,113 @@
+@charset "utf-8";
+
+// important
+$imt : unquote('!important');
+
+// item length
+$itemLength : 1000;
+
+/********** color variable **********/
+
+// main
+$color-ffffff: #ffffff !default;
+$color-bbbbbb: #BBBBBB !default;
+$color-767676: #767676 !default;
+$color-505050: #505050 !default;
+$color-111111: #111111 !default;
+
+// gold
+$color-c7b392: #C7B392 !default;
+$color-caac84: #caac84 !default;
+
+// majesty
+$color-fefcf2: #FEFCF2 !default;
+$color-f6f3e7: #F6F3E7 !default;
+$color-e2dbc7: #E2DBC7 !default;
+$color-cfc4a3: #CFC4A3 !default;
+$color-c6b993: #C6B993 !default;
+$color-beae82: #BEAE82 !default;
+$color-b5a371: #B5A371 !default;
+$color-ac9860: #AC9860 !default;
+$color-a08c53: #A08C53 !default;
+$color-8f7d4B: #8F7D4B !default;
+$color-6e5d2c: #6E5D2C !default;
+
+// bg
+$color-fafafa: #FAFAFA !default;
+$color-f1f1f5: #F1F1F5 !default;
+$color-f5f2ee: #F5F2EE !default;
+$color-eee8d7: #EEE8D7 !default;
+$color-dae7f7: #DAE7F7 !default;
+$color-171717: #171717 !default;
+
+// line
+$color-f0f0f6: #F0F0F6 !default;
+$color-e6e6ec: #E6E6EC !default;
+$color-8f7d4b: #8F7D4B !default;
+
+// system
+$color-dc0000: #DC0000 !default;
+$color-04b014: #04B014 !default;
+$color-ffaa00: #FFAA00 !default;
+
+
+$colors: () !default;
+$colors: map-merge(
+                (
+                        "ffffff": $color-ffffff,
+                        "bbbbbb": $color-bbbbbb,
+                        "767676": $color-767676,
+                        "505050": $color-505050,
+                        "111111": $color-111111,
+                        "c7b392": $color-c7b392,
+                        "caac84": $color-caac84,
+                        "fefcf2": $color-fefcf2,
+                        "f6f3e7": $color-f6f3e7,
+                        "e2dbc7": $color-e2dbc7,
+                        "cfc4a3": $color-cfc4a3,
+                        "c6b993" :$color-c6b993,
+                        "beae82": $color-beae82,
+                        "b5a371": $color-b5a371,
+                        "ac9860": $color-ac9860,
+                        "a08c53": $color-a08c53,
+                        "8f7d4B": $color-8f7d4B,
+                        "6e5d2c": $color-6e5d2c,
+                        "fafafa": $color-fafafa,
+                        "f1f1f5": $color-f1f1f5,
+                        "f5f2ee": $color-f5f2ee,
+                        "eee8d7": $color-eee8d7,
+                        "dae7f7": $color-dae7f7,
+                        "f0f0f6": $color-f0f0f6,
+                        "e6e6ec": $color-e6e6ec,
+                        "8f7d4b": $color-8f7d4b,
+                        "dc0000": $color-dc0000,
+                        "04b014": $color-04b014,
+                        "ffaa00": $color-ffaa00,
+                        "171717": $color-171717,
+                ),
+                $colors
+);
+
+
+/********** Break Point **********/
+/**
+* Last Modified: 2023-04-04
+* Author: mwkang1 (mwkang1@smartscore.kr)
+* Description: Mobile Break point CSS
+*/
+
+// 폴드 해상도 : 280px;
+$xsmobile: 319px;
+
+$xs : 280px;
+$sm : 320px;
+$md : 720px;
+$lg : 1024px;
+$xl : 1400px;
+
+
+
+
+
+
+

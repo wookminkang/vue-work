@@ -1,0 +1,241 @@
+/* button  */
+[class^="button-"]{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  white-space: nowrap;
+  font-size: 16px;
+  padding: 0 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  & *{transition: all 0.3s ease-in-out;}
+  * {cursor: pointer;}
+  &[disabled], &.disabled{ cursor: default !important;
+    * {cursor: default !important;}
+    background: $color-f1f1f5;
+    color: $color-bbbbbb !important;
+    border: 0 !important;
+  }
+  & ~ [class^="button-"]{margin-left:8px;}
+  & ~ [class^="button-"]{
+    &.xsmall{margin-left: 6px;}
+  }
+  &.lage{
+    min-width: 196px;
+    height:56px;
+  }
+  &.medium{
+    min-width: 124px;
+    height:40px;
+    font-size: 14px;
+  }
+  &.small{
+    min-width: 96px;
+    height:32px;
+    font-size: 13px;
+  }
+  &.xsmall{
+    min-width: 68px;
+    height:24px;
+    font-size: 12px;
+  }
+}
+
+.button-rectangle{
+  min-width: 156px;
+  height:48px;
+  background: $color-111111;
+  color: $color-ffffff;
+  &:hover, &:focus, &.active{
+    color: $color-b5a371;
+  }
+}
+
+.button-outline{
+  min-width: 156px;
+  height:48px;
+  border: 1px solid  $color-767676;
+  color: $color-767676;
+  &:hover, &:focus, &.active{
+    color: $color-111111;
+    border: 1px solid  $color-111111;
+  }
+  &.not-action{
+    &:hover, &:focus, &.active{
+      color: unset $imt;
+      border: unset $imt;
+    }
+  }
+  &.gold{
+    border: 1px solid  $color-8f7d4b;
+    color: $color-8f7d4b;
+    &:hover, &:focus, &.active{
+      color: $color-6e5d2c;
+      border: 1px solid  $color-6e5d2c;
+    }
+  }
+}
+
+.button-outline-white{
+  min-width: 156px;
+  height:48px;
+  border: 1px solid  $color-bbbbbb;
+  color: $color-bbbbbb;
+  &:hover, &:focus, &.active{
+    color: $color-ffffff;
+    border: 1px solid  $color-ffffff;
+  }
+  &.not-action{
+    &:hover, &:focus, &.active{
+      color: unset $imt;
+      border: unset $imt;
+    }
+  }
+}
+
+
+
+.button-rectangle-gold{
+  min-width: 156px;
+  height:48px;
+  background: $color-b5a371;
+  color: $color-ffffff;
+  &:hover, &:focus, &.active{
+    color: $color-6e5d2c;
+
+  }
+}
+
+.button-text{
+  height:36px;
+  padding: 0;
+  font-size:14px;
+
+  span{
+    color: $color-767676;
+    text-decoration: underline;
+  }
+  img{
+    margin-left: 2px;
+    filter: invert(43%) sepia(61%) saturate(0%) hue-rotate(118deg) brightness(98%) contrast(92%);
+  }
+  &:hover, &:focus, &.active{
+    color: $color-111111;
+    background: $color-fefcf2;
+    span{
+      color: $color-111111;
+      text-decoration: underline;
+    }
+    img{filter: invert(2%) sepia(48%) saturate(10%) hue-rotate(322deg) brightness(93%) contrast(91%);}
+  }
+  &[disabled], &.disabled{ cursor: default !important;
+    * {cursor: default !important;}
+    background: $color-ffffff;
+    span{
+      color: $color-bbbbbb !important;
+      text-decoration: underline;
+    }
+    img{filter: invert(79%) sepia(11%) saturate(19%) hue-rotate(315deg) brightness(90%) contrast(104%);}
+    border: 0 !important;
+  }
+}
+
+// toggle
+.toggle-switch{
+  position: relative;
+  display: inline-flex;
+  width: 120px;
+  height: 32px;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 14px;
+  font-family: 'Roboto', 'Noto Sans KR', 'sans-serif', '-apple-system', 'BlinkMacSystemFont' $imt;
+  input{
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    top: 0; left: 0;
+    z-index: 0;
+    &:checked{
+      & + label{
+        &:before{
+          background: $color-111111;
+          color: $color-c7b392;
+        }
+        &:after{
+          background: $color-f1f1f5;
+          color: $color-767676;
+        }
+      }
+    }
+  }
+  label{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    &:before{
+      content:'ON';
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      height: 100%;
+      background: $color-f1f1f5;
+      color: $color-767676;
+      pointer-events: none;
+    }
+    &:after{
+      content:'OFF';
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      height: 100%;
+      background: $color-111111;
+      color: $color-c7b392;
+      pointer-events: none;
+    }
+  }
+}
+
+// badge
+.badge-text{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 11px;
+  border: 1px solid #d5cfae;
+  color: $color-8f7d4b;
+  font-family: 'Roboto', 'Noto Sans KR', 'sans-serif', '-apple-system', 'BlinkMacSystemFont' $imt;
+  margin-right: 4px;
+}
+
+// tee time select
+.teetime-toggle{
+  display: inline-flex;
+  min-width: 132px;
+  height: 34px;
+  align-items: center;
+  padding: 0 24px;
+  border: 1px solid $color-bbbbbb;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-size: 15px;
+  margin-bottom: 12px;
+  &.active{
+    background: $color-111111;
+    color: $color-ffffff;
+  }
+  &:disabled{
+    background: $color-e6e6ec;
+    color: $color-bbbbbb;
+  }
+}

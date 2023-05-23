@@ -1,0 +1,191 @@
+/********************************************************/
+/* input checkbox , radio */
+/********************************************************/
+
+.button-input{
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  white-space: normal;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  padding: 0;
+  //&:hover{opacity: 0.8;}
+  &.disabled{
+    cursor: default;
+    &:hover{opacity: 1;}
+    input{cursor: default;}
+  }
+  input{cursor: pointer;}
+  .text{
+    font-size: 14px;
+    +.button-switch{margin-left: 10px;}
+    +[class^="checkbox"], +[class^="radio"]{margin-left: 2px;}
+  }
+  [class^="checkbox"],[class^="radio"]{
+    +.text{margin-left: 4px;}
+  }
+  .button-switch{
+    +.text{margin-left: 10px;}
+  }
+
+  .checkbox{
+    input[type="checkbox"]{
+      &+label, &+.check-icon{
+        background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_checkbox.svg');
+        background-size: cover;
+      }
+      &:checked+label, &:checked+.check-icon{
+        background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_checkbox-filled.svg');
+        background-size: cover;
+      }
+      &:disabled+label, &:disabled+.check-icon{
+        background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_check-Inactive.svg');
+        background-size: cover;
+      }
+      &:checked:disabled+label, &:checked:disabled+.check-icon{
+        background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_check-filled-Inactive.svg');
+        background-size: cover;
+      }
+    }
+    &.circle{
+      input[type="checkbox"]{
+        &+label, &+.check-icon{
+          background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_check-circle.svg');
+          background-size: cover;
+        }
+        &:checked+label, &:checked+.check-icon{
+          background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_check-circle-filled.svg');
+          background-size: cover;
+        }
+        &:disabled+label, &:disabled+.check-icon{
+          background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_check-circle-Inactive.svg');
+          background-size: cover;
+        }
+        &:checked:disabled+label, &:checked:disabled+.check-icon{
+          background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_check-circle-filled-Inactive.svg');
+          background-size: cover;
+        }
+      }
+    }
+  }
+  .radiobox{
+    input[type="radio"]{
+      &+label, &+.check-icon{
+        background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_radio-circle.svg');
+        background-size: cover;
+      }
+      &:checked+label, &:checked+.check-icon{
+        background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_radio-circle-filled.svg');
+        background-size: cover;
+      }
+      &:disabled+label, &:disabled+.check-icon{
+        background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_radio-circle-inactive.svg');
+        background-size: cover;
+      }
+      &:checked:disabled+label, &:checked:disabled+.check-icon{
+        background: url('https://image.smartscore.kr/majesty/global/checkbox/btn_radio-circle-filled-inactive.svg');
+        background-size: cover;
+      }
+    }
+  }
+}
+
+// *****************************************************
+// checkbox
+[class^="checkbox"]{
+  position:relative;
+  display: inline-flex;
+  width:20px;
+  height:20px;
+  vertical-align: middle;
+  input[type="checkbox"] {
+    position: relative;
+    width: 100% !important; height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    opacity: 0 !important;
+    outline: none;
+    &+label, &+.check-icon{
+      background-size: cover;
+      position:absolute;
+      width:100%;height:100%;
+      top:0;left:0;
+      outline: none;
+      z-index: 1;
+      //cursor: pointer;
+      transition: all .5 ease-in-out;
+    }
+    &:checked + label, &:checked + .check-icon {
+      display: inline-flex;
+      content: "";
+      position: absolute;
+      top: 0;left: 0;
+      width: 100%;height: 100%;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;
+      overflow: hidden;
+      background-size: cover;
+    }
+    &:disabled + label, &:disabled + .check-icon{cursor: default;}
+    // &.check-bold{
+    //   input[type="checkbox"]{
+    //     &:checked+label, &:checked+.check-icon{ @include svg-color($ic_check_bold, #00AA8E);}
+    //   }
+    // }
+  }
+}
+
+
+// ******************************************************
+// radio
+.radiobox{
+  position:relative;
+  display: inline-flex;
+  width:20px;
+  height:20px;
+  line-height: 0;
+  vertical-align: middle;
+  input[type="radio"] {
+    position: relative;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none;
+    opacity: 0 !important;
+    border: 0 !important;
+    & +  label, & +  .check-icon{
+      position:absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      outline: none;
+      z-index: 1;
+      cursor: pointer;
+      background-size: cover;
+      transition: all .5 ease-in-out;
+    }
+    &:checked + label,&:checked + .check-icon {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow: hidden;
+      background-size: cover;
+    }
+    &:disabled + label,&:disabled + .check-icon{
+      cursor: default;
+    }
+  }
+}
+
+

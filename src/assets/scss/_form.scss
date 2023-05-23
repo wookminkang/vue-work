@@ -1,0 +1,308 @@
+/********************************************************/
+/* text , select , */
+/********************************************************/
+
+input::placeholder, textarea::placeholder{color: $color-767676;}
+
+.form-field{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 48px; // default
+  transition: all 0.3s ease-in-out;
+  & *{transition: all 0.3s ease-in-out;}
+  input{
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid $color-bbbbbb;
+    color: $color-111111;
+    &:focus{border-bottom: 1px solid $color-111111;}
+    &:read-only{
+      &:focus{border-bottom: 1px solid $color-bbbbbb;}
+    }
+  }
+  &.active{
+    input{
+      border-bottom: 1px solid $color-111111;
+    }
+  }
+  &:hover{
+    input {
+      background:  $color-fefcf2;
+    }
+  }
+  &.disabled{
+    input{
+      &:disabled{
+        background: $color-f1f1f5;
+        color : $color-bbbbbb;
+      }
+      & + button.form-icon{cursor: default;}
+    }
+  }
+  .reset-bt{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 0px;
+    top: 50%;
+    margin-top: -12px;
+  }
+  .auth-time-box{
+    position: absolute;
+    right:0;
+    top:56px;
+    display: flex;
+  }
+  .form-icon{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 0;
+    top: 50%;
+    margin-top: -13px;
+    img{width: 24px; height: 24px;}
+  }
+  &.select{
+    input{
+      padding: 10px 48px 10px 0;
+      cursor: pointer;
+      &:read-only{
+        opacity: 1;
+      }
+      &:focus{
+        border-bottom: 1px solid $color-bbbbbb;
+      }
+    }
+    &.active{
+      input{
+        border-bottom: 1px solid $color-111111 $imt;
+      }
+    }
+    &.lage{
+      .form-select-dropdown{
+        max-height: 224px;
+        overflow-y: auto;
+        top: 56px;
+        li{
+          height: 56px;
+        }
+      }
+      &.bottom{
+        .form-select-dropdown{
+          top: unset;
+          bottom: 56px;
+          box-shadow: -5px -5px 20px 0 rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+    &.small{
+      .form-select-dropdown{
+        max-height: 176px;
+        overflow-y: auto;
+        top: 40px;
+        li{
+          height: 44px;
+        }
+      }
+      &.bottom{
+        .form-select-dropdown{
+          top: unset;
+          bottom: 40px;
+          box-shadow: -5px -5px 20px 0 rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+    &.bottom{
+      .form-select-dropdown{
+        top: unset;
+        bottom: 48px;
+        box-shadow: -5px -5px 20px 0 rgba(0, 0, 0, 0.1);
+      }
+    }
+    .form-select-dropdown{
+      display: none;
+      position: absolute;
+      width: 100%;
+      max-height: 200px;
+      overflow-y: auto;
+      top: 48px;
+      left: 0;
+      z-index: 10;
+      box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, 0.1);
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      li{
+        display: flex;
+        width: 100%;
+        height: 50px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        color: $color-111111;
+        background: $color-ffffff;
+        &:hover{
+          background: $color-fefcf2;
+          color: $color-6e5d2c;
+        }
+
+      }
+    }
+    .form-icon{
+      right: 12px;
+    }
+    &.active{
+      .form-icon{
+        transform: rotate(180deg);
+      }
+      .form-select-dropdown{
+        display: block;
+      }
+    }
+    &.disabled{
+      *{cursor: default;}
+    }
+  }
+  &.search{
+    input{
+      padding: 10px 76px 10px 0;
+    }
+    .reset-bt{
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      right: 40px;
+      top: 50%;
+      margin-top: -12px;
+    }
+    &.type-popup{
+      &:hover{
+        input {
+          background:  transparent $imt;
+        }
+      }
+    }
+  }
+  &.password{
+    input{
+      padding: 10px 40px 10px 0;
+    }
+    .reset-bt{
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      right: 40px;
+      top: 50%;
+      margin-top: -12px;
+    }
+    .form-icon{
+      filter: invert(86%) sepia(14%) saturate(50%) hue-rotate(191deg) brightness(110%) contrast(94%);
+    }
+  }
+  &.auth{
+    input{
+      padding: 10px 40px 10px 0;
+    }
+    .reset-bt{
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      right: 50px;
+      top: 47%;
+      margin-top: -12px;
+    }
+    .form-icon{
+      width: max-content;
+      filter: invert(86%) sepia(14%) saturate(50%) hue-rotate(191deg) brightness(110%) contrast(94%);
+    }
+    .auth-btn{
+      filter: none;
+    }
+    .auth-time-box{
+      position: absolute;
+      right:0;
+      top:56px;
+      display: flex;
+    }
+  }
+
+
+  // 사이즈
+  &.lage{height: 56px;}
+  &.small{height: 40px;}
+
+  // error type
+  &.error{
+    input{
+      border-bottom: 1px solid $color-dc0000;
+    }
+  }
+  &.basic{
+    input{
+      border-bottom: 1px solid $color-ffaa00;
+    }
+  }
+  &.success{
+    input{
+      border-bottom: 1px solid $color-04b014;
+    }
+    .form-icon{
+      filter: invert(2%) sepia(48%) saturate(10%) hue-rotate(322deg) brightness(93%) contrast(91%);
+    }
+  }
+
+}
+// form msg box
+.form-field-msg{
+  padding: 8px 0;
+  font-size: 12px;
+  text-align: left;
+  color: $color-767676;
+}
+.form-field{
+  &.error + .form-field-msg{color: $color-dc0000;}
+  &.basic + .form-field-msg{color: $color-ffaa00;}
+  &.success + .form-field-msg{color: $color-04b014;}
+}
+
+// textarea
+.text-field{
+  position: relative;
+  width: 100%;
+  height: 184px;
+  padding: 16px 4px 16px 16px;
+  border: 1px solid #e5e5ec;
+  border-radius: 4px;
+  textarea{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 14px;
+    color: $color-767676;
+    resize: none;
+  }
+  &.disabled{
+    textarea, textarea::placeholder{color: $color-bbbbbb;}
+    background: #e5e5ec;
+  }
+}
+
+/* swiper scroll bar
+*********************************************************************************************************************/
+
+.file-upload-box{
+  position: relative;
+  width: 100%;
+  height: 242px;
+  background: linear-gradient(to right, #dedede 50%, rgba(255, 255, 255, 0) 0%),
+  linear-gradient(#dedede 50%, rgba(255, 255, 255, 0) 0%), linear-gradient(to right, #dedede 50%, rgba(255, 255, 255, 0) 0%), linear-gradient(#dedede 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: top, right, bottom, left;
+  background-repeat: repeat-x, repeat-y;
+  background-size: 10px 1px, 1px 10px;
+}
