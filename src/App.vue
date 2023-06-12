@@ -27,7 +27,7 @@
 
 import Header from "@/layout/Header.vue";
 import Footer from "@/layout/Footer.vue";
-import {userList} from "@/api";
+import {imgList, } from "@/api";
 
 
 
@@ -41,7 +41,7 @@ export default {
   },
   components: {Footer, Header},
   mounted() {
-    userList()
+    imgList()
         .then(({data})=>{
           console.log(data)
           this.userData = data;
